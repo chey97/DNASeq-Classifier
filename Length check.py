@@ -1,0 +1,5 @@
+mySeq1 = 'TCTCACACATGTGCCAATCACTGTCACCC'
+print(len(mySeq1))
+
+mySeq2 = 'GTGCCCAGGTTCAGTGAGTGACACAGGCAG'
+print(len(mySeq2))
