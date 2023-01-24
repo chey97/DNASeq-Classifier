@@ -12,7 +12,7 @@ def string_to_array(seq_string):
     seq_string = np.array(list(seq_string))
     return seq_string
 
-#Create a label encoder with 'acgtn' alphabet
+# Create a label encoder with 'acgtn' alphabet
 from sklearn.preprocessing import LabelEncoder
 label_encoder = LabelEncoder()
 label_encoder.fit(np.array(['a','c','g','t','z']))
@@ -30,7 +30,7 @@ def ordinal_encoder(my_array):   # converts the elements of "my_array" into nume
     float_encoded[float_encoded == 4 ] = 0.00 # anything else
     return float_encoded
 
-#try out a simple short sequence
+# try out a simple short sequence
 seq_test = 'TTCAGCCAGTG'
 print(seq_test)
 print(ordinal_encoder(string_to_array(seq_test)))
