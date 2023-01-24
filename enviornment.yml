@@ -1,0 +1,13 @@
+name: DNASeq
+channels:
+  - defaults
+  - anaconda
+  - pytorch
+
+dependencies:
+  - pyhton=3.8
+  - anaconda::numpy=1.22.3
+  - conda-forge::pandas~=1.1.5
+  - pytorch::pytorch=1.12
+  - conda-forge::matplotlib
+  - conda-forge::biopython=1.80
