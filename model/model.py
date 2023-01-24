@@ -46,6 +46,9 @@ plt.savefig("plots/Class_distribution_of_Dog_DNA.png")
 plt.show()
 
 # Create a figure with 3 subplots
+if not os.path.exists("plots"):
+    os.makedirs("plots")
+
 fig, axs = plt.subplots(1, 3, figsize=(10,5))
 
 # Plot the class distribution of human DNA in the first subplot
@@ -60,5 +63,7 @@ axs[1].set_title("Class distribution of Chimpanzee DNA")
 dog_dna['class'].value_counts().sort_index().plot.bar(ax=axs[2], color='green')
 axs[2].set_title("Class distribution of Dog DNA")
 
+# Save the figure
+fig.savefig("plots/Class_distribution_of_DNA.png")
 # Show the plots
 plt.show()
