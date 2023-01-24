@@ -15,7 +15,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 #load human DNA data
 human_dna = pd.read_table('../DNASeq Classifier/dna-sequence-dataset/human.txt')
 (human_dna.head())
-#print((human_dna.head()))
+print((human_dna.head()))
 
 #load chimpanzee DNA data
 chimp_dna = pd.read_table('../DNASeq Classifier/dna-sequence-dataset/chimpanzee.txt')
@@ -35,19 +35,19 @@ if not os.path.exists("plots"):
 human_dna['class'].value_counts().sort_index().plot.bar(color='red')
 plt.title("Class distribution of Human DNA")
 plt.savefig("plots/Class_distribution_of_Human_DNA.png")
-plt.show()
+#plt.show()
 
 # Plot the class distribution of chimpanzee DNA and save the plot
 chimp_dna['class'].value_counts().sort_index().plot.bar(color='blue')
 plt.title("Class distribution of Chimpanzee DNA")
 plt.savefig("plots/Class_distribution_of_Chimpanzee_DNA.png")
-plt.show()
+#plt.show()
 
 # Plot the class distribution of dog DNA and save the plot
 dog_dna['class'].value_counts().sort_index().plot.bar(color='green')
 plt.title("Class distribution of Dog DNA")
 plt.savefig("plots/Class_distribution_of_Dog_DNA.png")
-plt.show()
+#plt.show()
 
 # Create a figure with 3 subplots
 if not os.path.exists("plots"):
@@ -70,7 +70,7 @@ axs[2].set_title("Class distribution of Dog DNA")
 # Save the figure
 fig.savefig("plots/Class_distribution_of_DNA.png")
 # Show the plots
-plt.show()
+#plt.show()
 
 #k-mers function
 def Kmers_funct(seq, size=6):
@@ -97,7 +97,7 @@ chimp_dna = chimp_dna.drop('sequence', axis=1)
 dog_dna['words'] = dog_dna.apply(lambda x: Kmers_funct(x['sequence']), axis=1)
 dog_dna = dog_dna.drop('sequence', axis=1)
 
-#print(human_dna.head())
+print(human_dna.head())
 
 #convert the lists of k-mers for each gene into string sentences of words that can be used to create the Bag of Words model
 
@@ -108,7 +108,7 @@ for item in range(len(human_texts)):
 y_human = human_dna.iloc[:, 0].values # y_human for human_dna
 
 #print(human_texts)
-#print(y_human)
+print(y_human)
 
 chimp_texts = list(chimp_dna['words'])
 for item in range(len(chimp_texts)):
@@ -124,4 +124,10 @@ y_dog = dog_dna.iloc[:, 0].values  # y_dog for dog_dna
 
 #Creating the Bag of Words model using CountVectorizer()
 
-cv = CountVectorizer(ngram)
+cv = CountVectorizer(ngram_range=(4,4)) #the n-gram size of 4 is previously detemined by testing.
+X = cv.fit_transform(human_texts) #use fit_transform() on training data but transform() on the test data
+
+
+# df = pd.DataFrame(X)
+# print(df)
+# df.to_csv('human.csv')
