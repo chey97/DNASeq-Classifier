@@ -6,37 +6,59 @@ import matplotlib.pyplot as plt
 # for dirname, _,filenames in os.walk('../DNASeq Classifier/dna-sequence-dataset'): #specific path to the dstaset
 #     for filename in filenames:
 #         print(os.path.join(dirname, filename))
- 
-#--------------------------------------#       
+
+#---loading data----
+
 #load human DNA data
 human_dna = pd.read_table('../DNASeq Classifier/dna-sequence-dataset/human.txt')
 print(human_dna.head())
 
-#Plot the human DNA data, Subdir - plots
-script_dir = os.path.dirname('DNASeq Classifier')
-results_dir = os.path.join(script_dir, 'plots/')
-sample_file_name = "Class_distribution_of_Human_DNA"
-
-if not os.path.isdir(results_dir):
-    os.makedirs(results_dir)
-
-human_dna['class'].value_counts().sort_index().plot.bar()
-plt.title("Class distribution of Human DNA")
-plt.savefig(results_dir + sample_file_name)
-
-#-------------------------------------#
 #load chimpanzee DNA data
 chimp_dna = pd.read_table('../DNASeq Classifier/dna-sequence-dataset/chimpanzee.txt')
 chimp_dna.head()
 
-#Plot the chimpanzee DNA data, Subdir - plots
-script_dir = os.path.dirname('DNASeq Classifier')
-results_dir = os.path.join(script_dir, 'plots/')
-sample_file_name = "Class_distribution_of_Chimpanzee_DNA"
+#load dog DNA data
+dog_dna = pd.read_table('../DNASeq Classifier/dna-sequence-dataset/dog.txt')
+dog_dna.head()
 
-if not os.path.isdir(results_dir):
-    os.makedirs(results_dir)
+#---plotting----
 
-human_dna['class'].value_counts().sort_index().plot.bar()
+# Create a new subdirectory called "plots" if it does not exist
+if not os.path.exists("plots"):
+    os.makedirs("plots")
+
+# Plot the class distribution of human DNA and save the plot
+human_dna['class'].value_counts().sort_index().plot.bar(color='red')
+plt.title("Class distribution of Human DNA")
+plt.savefig("plots/Class_distribution_of_Human_DNA.png")
+plt.show()
+
+# Plot the class distribution of chimpanzee DNA and save the plot
+chimp_dna['class'].value_counts().sort_index().plot.bar(color='blue')
 plt.title("Class distribution of Chimpanzee DNA")
-plt.savefig(results_dir + sample_file_name)
+plt.savefig("plots/Class_distribution_of_Chimpanzee_DNA.png")
+plt.show()
+
+# Plot the class distribution of dog DNA and save the plot
+dog_dna['class'].value_counts().sort_index().plot.bar(color='green')
+plt.title("Class distribution of Dog DNA")
+plt.savefig("plots/Class_distribution_of_Dog_DNA.png")
+plt.show()
+
+# Create a figure with 3 subplots
+fig, axs = plt.subplots(1, 3, figsize=(10,5))
+
+# Plot the class distribution of human DNA in the first subplot
+human_dna['class'].value_counts().sort_index().plot.bar(ax=axs[0], color='red')
+axs[0].set_title("Class distribution of Human DNA")
+
+# Plot the class distribution of chimpanzee DNA in the second subplot
+chimp_dna['class'].value_counts().sort_index().plot.bar(ax=axs[1], color='blue')
+axs[1].set_title("Class distribution of Chimpanzee DNA")
+
+# Plot the class distribution of dog DNA in the third subplot
+dog_dna['class'].value_counts().sort_index().plot.bar(ax=axs[2], color='green')
+axs[2].set_title("Class distribution of Dog DNA")
+
+# Show the plots
+plt.show()
