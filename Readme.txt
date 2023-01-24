@@ -30,4 +30,5 @@ To test the model, we will use the DNA sequence of humans, dogs, and chimpanzees
 _______________________
 
 Definitions for each of the 7 classes in the human training data:
-https://github.com/chey97/DNASeq-Classifier/blob/main/images/7%20classes%20in%20the%20human%20trainning%20data.webp
+![Alt text](hhttps://github.com/chey97/DNASeq-Classifier/blob/main/images/7%20classes%20in%20the%20human%20trainning%20data.webp
+ "7 classes in the human training data:")
