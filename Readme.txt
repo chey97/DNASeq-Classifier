@@ -38,3 +38,13 @@ To learn about CountVectorizer : https://pianalytix.com/countvectorizer-in-nlp/
                                : https://docs.google.com/document/d/1Tez9aljU6ccZVG0cDI_0I4UeI9hjuQ0uc7WQKnwJqgY/edit#heading=h.mnzfhaloi4d6
 
 CountVectorizer and Ngram tutorial : https://www.kaggle.com/code/shaukathussain/countvectorizer-and-ngram-tutorial-for-beginners/notebook
+
+Why we use fit_transform() on training data but transform() on the test data?
+https://towardsdatascience.com/what-and-why-behind-fit-transform-vs-transform-in-scikit-learn-78f915cf96fe
+We call fit_transform() method on our training data and transform() method on our test data.
+
+fit_transform() -   The fit method is calculating the mean and variance of each of the features present in our data. 
+                    The transform method is transforming all the features using the respective mean and variance.
+
+transform()     -   Using the transform method we can use the same mean and variance as it is calculated from our training data to transform our test data. 
+                    Thus, the parameters learned by our model using the training data will help us to transform our test data.
