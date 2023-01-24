@@ -15,11 +15,22 @@ def string_to_array(seq_string):
 #Create a label encoder with 'acgtn' alphabet
 from sklearn.preprocessing import LabelEncoder
 label_encoder = LabelEncoder()
-label_encoder.fit(np.array['a','c','g','t','z'])
+label_encoder.fit(np.array(['a','c','g','t','z']))
 
-#function to encode a DNA sequence string as an ordinal vector. 
+# function to encode a DNA sequence string as an ordinal vector. 
 # It returns a NumPy array with A=0.25, C=0.50, G=0.75, T=1.00, n=0.00.
 
+def ordinal_encoder(my_array):   # converts the elements of "my_array" into numerical labels.
+    integer_encoded = label_encoder.transform(my_array)
+    float_encoded = integer_encoded.astype(float)  # converting the datatype of the integer_encoded to a float.
+    float_encoded[float_encoded == 0 ] = 0.25 # A
+    float_encoded[float_encoded == 1 ] = 0.50 # C
+    float_encoded[float_encoded == 2 ] = 0.75 # G
+    float_encoded[float_encoded == 3 ] = 1.00 # T
+    float_encoded[float_encoded == 4 ] = 0.00 # anything else
+    return float_encoded
 
-
-
+#try out a simple short sequence
+seq_test = 'TTCAGCCAGTG'
+print(seq_test)
+print(ordinal_encoder(string_to_array(seq_test)))
