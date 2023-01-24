@@ -32,3 +32,7 @@ _______________________
 
 Definitions for each of the 7 classes in the human training data:
 ![Alt text](/DNASeq Classifier/images/7 classes in the human trainning data.png)
+
+
+To learn about CountVectorizer : https://pianalytix.com/countvectorizer-in-nlp/
+                               : https://docs.google.com/document/d/1Tez9aljU6ccZVG0cDI_0I4UeI9hjuQ0uc7WQKnwJqgY/edit#heading=h.mnzfhaloi4d6
