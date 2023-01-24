@@ -1,0 +1,22 @@
+DNA data handling using Biopython
+
+In the main.py there is a  brief example of how to work with a DNA sequence in fasta format using Biopython. 
+The sequence object will contain attributes such as id and sequence and the length of the sequence that you can work with directly.
+
+We will use Bio.SeqIO from Biopython for parsing DNA sequence data(fasta). 
+It provides a simple uniform interface to input and output assorted sequence file formats.
+
+-----------------------
+
+We can load and manipulate biological sequence data easily, how can we use it for machine learning or deep learning?
+
+Now since machine learning or deep learning models require input to be feature matrices or numerical values and currently we still have our data in character or string format. 
+So the next step is to encode these characters into matrices.
+
+There are 3 general approaches to encode sequence data:
+
+1. Ordinal encoding DNA Sequence
+
+2. One-hot encoding DNA Sequence
+
+3. DNA sequence as a “language”, known as k-mer counting
