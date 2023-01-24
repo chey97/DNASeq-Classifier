@@ -17,4 +17,9 @@ from sklearn.preprocessing import LabelEncoder
 label_encoder = LabelEncoder()
 label_encoder.fit(np.array['a','c','g','t','z'])
 
+#function to encode a DNA sequence string as an ordinal vector. 
+# It returns a NumPy array with A=0.25, C=0.50, G=0.75, T=1.00, n=0.00.
+
+
+
 
