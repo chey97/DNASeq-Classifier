@@ -2,6 +2,9 @@ import numpy as np #linear algebra
 import pandas as pd #data processing, CSV I/O
 import os
 import matplotlib.pyplot as plt
+
+from sklearn.feature_extraction.text import CountVectorizer 
+
 #%matplotlib inline
 # for dirname, _,filenames in os.walk('../DNASeq Classifier/dna-sequence-dataset'): #specific path to the dstaset
 #     for filename in filenames:
@@ -119,3 +122,6 @@ for item in range(len(dog_texts)):
 #separate labels
 y_dog = dog_dna.iloc[:, 0].values  # y_dog for dog_dna
 
+#Creating the Bag of Words model using CountVectorizer()
+
+cv = CountVectorizer(ngram)

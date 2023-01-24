@@ -36,3 +36,5 @@ Definitions for each of the 7 classes in the human training data:
 
 To learn about CountVectorizer : https://pianalytix.com/countvectorizer-in-nlp/
                                : https://docs.google.com/document/d/1Tez9aljU6ccZVG0cDI_0I4UeI9hjuQ0uc7WQKnwJqgY/edit#heading=h.mnzfhaloi4d6
+
+CountVectorizer and Ngram tutorial : https://www.kaggle.com/code/shaukathussain/countvectorizer-and-ngram-tutorial-for-beginners/notebook
