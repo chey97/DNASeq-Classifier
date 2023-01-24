@@ -21,6 +21,8 @@ There are 3 general approaches to encode sequence data:
 
 3. DNA sequence as a “language”, known as k-mer counting
 
+-----------------------
+
 Objective: Build a classification model that is trained on the human DNA sequence and can predict a gene family based on the DNA sequence of the coding sequence. 
 
 To test the model, we will use the DNA sequence of humans, dogs, and chimpanzees and compare the accuracies.
