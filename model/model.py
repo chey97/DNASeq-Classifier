@@ -15,7 +15,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 #load human DNA data
 human_dna = pd.read_table('../DNASeq Classifier/dna-sequence-dataset/human.txt')
 (human_dna.head())
-print((human_dna.head()))
+#print((human_dna.head()))
 
 #load chimpanzee DNA data
 chimp_dna = pd.read_table('../DNASeq Classifier/dna-sequence-dataset/chimpanzee.txt')
@@ -97,7 +97,7 @@ chimp_dna = chimp_dna.drop('sequence', axis=1)
 dog_dna['words'] = dog_dna.apply(lambda x: Kmers_funct(x['sequence']), axis=1)
 dog_dna = dog_dna.drop('sequence', axis=1)
 
-print(human_dna.head())
+#print(human_dna.head())
 
 #convert the lists of k-mers for each gene into string sentences of words that can be used to create the Bag of Words model
 
@@ -108,7 +108,7 @@ for item in range(len(human_texts)):
 y_human = human_dna.iloc[:, 0].values # y_human for human_dna
 
 #print(human_texts)
-print(y_human)
+#print(y_human)
 
 chimp_texts = list(chimp_dna['words'])
 for item in range(len(chimp_texts)):
@@ -126,8 +126,26 @@ y_dog = dog_dna.iloc[:, 0].values  # y_dog for dog_dna
 
 cv = CountVectorizer(ngram_range=(4,4)) #the n-gram size of 4 is previously detemined by testing.
 X = cv.fit_transform(human_texts) #use fit_transform() on training data but transform() on the test data
+X_chimp = cv.transform(chimp_texts)
+X_dog = cv.transform(dog_texts)
 
+print(X.shape)
+print(X_chimp.shape)
+print(X_dog.shape)
+
+'''
+Should output these : So, for humans 4380 genes converted into uniform length feature vectors of 4-gram k-mer (length 6) counts. 
+For chimp and dog, the same number of features with 1682 and 820 genes respectively.
+X       - (4380, 232414)
+X_chimp - (1682, 232414)
+X_dog   - (820, 232414)
+'''
 
 # df = pd.DataFrame(X)
 # print(df)
 # df.to_csv('human.csv')
+
+# Splitting the human dataset into the training set and test set
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X,y_human,test_size = 0.20,random_state=42)
+

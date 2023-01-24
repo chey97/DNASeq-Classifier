@@ -48,3 +48,9 @@ fit_transform() -   The fit method is calculating the mean and variance of each 
 
 transform()     -   Using the transform method we can use the same mean and variance as it is calculated from our training data to transform our test data. 
                     Thus, the parameters learned by our model using the training data will help us to transform our test data.
+
+
+Here I have used the human data to train the model, holding out 20% of the human data to test the model. 
+Then I can challenge the model’s generalizability by trying to predict sequence function in other species (the chimpanzee and dog).
+
+Multinomial Naїve Bayes’ For Documents Classification and Natural Language Processing (NLP) : https://towardsdatascience.com/multinomial-naïve-bayes-for-documents-classification-and-natural-language-processing-nlp-e08cc848ce6
