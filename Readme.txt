@@ -31,4 +31,4 @@ _______________________
 
 Definitions for each of the 7 classes in the human training data:
 
-[![Code style: black](https://github.com/chey97/DNASeq-Classifier/blob/6c20c52f40b7b943437161de562a4b2c7af3c8ac/images/7%20classes%20in%20the%20human%20trainning%20data.png)](https://github.com/psf/black)
+![7 classes in the human trainning data](https://user-images.githubusercontent.com/84511412/214389146-b56b42c7-aba5-4945-ba3a-0682953d6a00.png)
