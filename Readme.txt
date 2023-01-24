@@ -27,8 +27,8 @@ Objective: Build a classification model that is trained on the human DNA sequenc
 
 To test the model, we will use the DNA sequence of humans, dogs, and chimpanzees and compare the accuracies.
 
+The dataset contains human DNA sequence, Dog DNA sequence, and Chimpanzee DNA sequence.
 _______________________
 
 Definitions for each of the 7 classes in the human training data:
-
-![7 classes in the human trainning data](https://user-images.githubusercontent.com/84511412/214389146-b56b42c7-aba5-4945-ba3a-0682953d6a00.png)
+![Alt text](/DNASeq Classifier/images/7 classes in the human trainning data.png)

@@ -11,7 +11,8 @@ import matplotlib.pyplot as plt
 
 #load human DNA data
 human_dna = pd.read_table('../DNASeq Classifier/dna-sequence-dataset/human.txt')
-print(human_dna.head())
+(human_dna.head())
+#print((human_dna.head()))
 
 #load chimpanzee DNA data
 chimp_dna = pd.read_table('../DNASeq Classifier/dna-sequence-dataset/chimpanzee.txt')
@@ -67,3 +68,54 @@ axs[2].set_title("Class distribution of Dog DNA")
 fig.savefig("plots/Class_distribution_of_DNA.png")
 # Show the plots
 plt.show()
+
+#k-mers function
+def Kmers_funct(seq, size=6):
+    return [seq[x:x+size].lower() for x in range(len(seq) - size + 1)]
+
+#----conversion----
+
+#convert our training data sequences into short overlapping k-mers of length 6 for each species of data.
+
+human_dna['words'] = human_dna.apply(lambda x: Kmers_funct(x['sequence']), axis=1)
+human_dna = human_dna.drop('sequence', axis=1)
+
+'''---
+1. human_dna['words'] =: This creates a new column in the human_dna dataframe called words.
+2. human_dna.apply(lambda x:: This uses the apply() function to apply a user-defined function to each row of the human_dna dataframe. The lambda x: is an anonymous function that is passed to the apply() function and takes the value of the current row as the input argument.
+3. Kmers_funct(x['sequence']),: This is the user-defined function Kmers_funct() that takes the sequence column of the current row as the input argument. It is applied to each row of the dataframe, and the output of the function is stored in the new words column.
+4. axis=1): This specifies that the function Kmers_funct() is applied along the rows (axis=1) of the dataframe.
+5. human_dna = human_dna.drop('sequence', axis=1): This line drops the 'sequence' column from the dataframe using the drop() function, with axis=1 indicating that the column is dropped from the dataframe along the columns axis.
+----'''
+
+chimp_dna['words'] = chimp_dna.apply(lambda x: Kmers_funct(x['sequence']), axis=1)
+chimp_dna = chimp_dna.drop('sequence', axis=1)
+
+dog_dna['words'] = dog_dna.apply(lambda x: Kmers_funct(x['sequence']), axis=1)
+dog_dna = dog_dna.drop('sequence', axis=1)
+
+#print(human_dna.head())
+
+#convert the lists of k-mers for each gene into string sentences of words that can be used to create the Bag of Words model
+
+human_texts = list(human_dna['words'])
+for item in range(len(human_texts)):
+    human_texts[item] = ' '.join(human_texts[item])
+#separate labels
+y_human = human_dna.iloc[:, 0].values # y_human for human_dna
+
+#print(human_texts)
+#print(y_human)
+
+chimp_texts = list(chimp_dna['words'])
+for item in range(len(chimp_texts)):
+    chimp_texts[item] = ' '.join(chimp_texts[item])
+#separate labels
+y_chim = chimp_dna.iloc[:, 0].values # y_chim for chimp_dna
+
+dog_texts = list(dog_dna['words'])
+for item in range(len(dog_texts)):
+    dog_texts[item] = ' '.join(dog_texts[item])
+#separate labels
+y_dog = dog_dna.iloc[:, 0].values  # y_dog for dog_dna
+
