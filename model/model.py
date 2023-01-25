@@ -10,7 +10,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 #     for filename in filenames:
 #         print(os.path.join(dirname, filename))
 
-#---loading data----
+#------loading data-------
 
 #load human DNA data
 human_dna = pd.read_table('../DNASeq Classifier/dna-sequence-dataset/human.txt')
@@ -25,7 +25,7 @@ chimp_dna.head()
 dog_dna = pd.read_table('../DNASeq Classifier/dna-sequence-dataset/dog.txt')
 dog_dna.head()
 
-#---plotting----
+#------plotting-------
 
 # Create a new subdirectory called "plots" if it does not exist
 if not os.path.exists("plots"):
@@ -76,7 +76,7 @@ fig.savefig("plots/Class_distribution_of_DNA.png")
 def Kmers_funct(seq, size=6):
     return [seq[x:x+size].lower() for x in range(len(seq) - size + 1)]
 
-#----conversion----
+#------conversion------
 
 #convert our training data sequences into short overlapping k-mers of length 6 for each species of data.
 
@@ -122,16 +122,21 @@ for item in range(len(dog_texts)):
 #separate labels
 y_dog = dog_dna.iloc[:, 0].values  # y_dog for dog_dna
 
-#Creating the Bag of Words model using CountVectorizer()
+#------Creating the Bag of Words model using CountVectorizer()------
 
 cv = CountVectorizer(ngram_range=(4,4)) #the n-gram size of 4 is previously detemined by testing.
 X = cv.fit_transform(human_texts) #use fit_transform() on training data but transform() on the test data
 X_chimp = cv.transform(chimp_texts)
 X_dog = cv.transform(dog_texts)
+#F = cv.get_feature_names_out()
+    
+
+#print(cv.get_feature_names_out())
 
 print(X.shape)
 print(X_chimp.shape)
 print(X_dog.shape)
+    
 
 '''
 Should output these : So, for humans 4380 genes converted into uniform length feature vectors of 4-gram k-mer (length 6) counts. 
@@ -141,11 +146,6 @@ X_chimp - (1682, 232414)
 X_dog   - (820, 232414)
 '''
 
-# df = pd.DataFrame(X)
+# df = pd.DataFrame(F)
 # print(df)
-# df.to_csv('human.csv')
-
-# Splitting the human dataset into the training set and test set
-from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X,y_human,test_size = 0.20,random_state=42)
-
+# df.to_csv('human_feautures.csv')
