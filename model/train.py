@@ -25,6 +25,7 @@ classifier.fit(X_train, y_train)
 
 y_pred = classifier.predict(X_test)
 
+#model performce metrics like the confusion matrix, accuracy, precision, recall and f1 score.
 
 print("Confusion matrix for predictions on human test DNA sequence\n")
 print(pd.crosstab(pd.Series(y_test, name='Actual'), pd.Series(y_pred, name='Predicted')))
