@@ -24,10 +24,13 @@ There are 3 general approaches to encode sequence data:
 -----------------------
 
 Objective: Build a classification model that is trained on the human DNA sequence and can predict a gene family based on the DNA sequence of the coding sequence. 
-
 To test the model, we will use the DNA sequence of humans, dogs, and chimpanzees and compare the accuracies.
-
 The dataset contains human DNA sequence, Dog DNA sequence, and Chimpanzee DNA sequence.
+
+The purdpose of this model is to classify gene families based on the DNA sequence of the coding sequence. 
+This can be useful in understanding genetic variation and evolution across different species, as well as in identifying specific genes and genetic markers for medical and biological research.
+By trainning the model of human DNA sequences and testing it on the DNA sequences of other species, like chimpanzees and dogs, can determine the models ability to accurartely classify gene families across different species and evaluate its potential applicability to other organisms.
+
 _______________________
 
 Definitions for each of the 7 classes in the human training data:
