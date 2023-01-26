@@ -1,6 +1,6 @@
 DNA data handling using Biopython
 
-In the main.py there is a  brief example of how to work with a DNA sequence in fasta format using Biopython. 
+In the model.py there is a  brief example of how to work with a DNA sequence in fasta format using Biopython. 
 The sequence object will contain attributes such as id and sequence and the length of the sequence that you can work with directly.
 
 We will use Bio.SeqIO from Biopython for parsing DNA sequence data(fasta). 
