@@ -1,4 +1,5 @@
 '''
+DNASeq - DNA Sequence Classifier Copyright (C) 2023  Chethiya Galkaduwa
 Here the human data is used to train the model, holding out 20% of the human data to test the model.
 Then challenge the model's generalizability by trying to predict sequence function in other species (the chimpanzee and dog).
 Next, train/test split human dataset and build simple multinomial naive Bayes classifier.
