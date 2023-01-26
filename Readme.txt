@@ -57,3 +57,7 @@ Here I have used the human data to train the model, holding out 20% of the human
 Then I can challenge the model’s generalizability by trying to predict sequence function in other species (the chimpanzee and dog).
 
 Multinomial Naїve Bayes’ For Documents Classification and Natural Language Processing (NLP) : https://towardsdatascience.com/multinomial-naïve-bayes-for-documents-classification-and-natural-language-processing-nlp-e08cc848ce6
+
+
+
+This program was build for academic purpose - DNASeq - DNA Sequence Classifier Copyright (C) 2023  Chethiya Galkaduwa
