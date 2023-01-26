@@ -21,16 +21,16 @@ from sklearn.feature_extraction.text import CountVectorizer
 #------loading data-------
 
 #load human DNA data
-human_dna = pd.read_table('../DNASeq Classifier/dna-sequence-dataset/human.txt')
+human_dna = pd.read_table('../DNASeq-Classifier/dna-sequence-dataset/human.txt')
 (human_dna.head())
 #print((human_dna.head()))
 
 #load chimpanzee DNA data
-chimp_dna = pd.read_table('../DNASeq Classifier/dna-sequence-dataset/chimpanzee.txt')
+chimp_dna = pd.read_table('../DNASeq-Classifier/dna-sequence-dataset/chimpanzee.txt')
 chimp_dna.head()
 
 #load dog DNA data
-dog_dna = pd.read_table('../DNASeq Classifier/dna-sequence-dataset/dog.txt')
+dog_dna = pd.read_table('../DNASeq-Classifier/dna-sequence-dataset/dog.txt')
 dog_dna.head()
 
 #------plotting-------
@@ -43,19 +43,19 @@ if not os.path.exists("plots"):
 human_dna['class'].value_counts().sort_index().plot.bar(color='red')
 plt.title("Class distribution of Human DNA")
 plt.savefig("plots/Class_distribution_of_Human_DNA.png")
-#plt.show()
+plt.show()
 
 # Plot the class distribution of chimpanzee DNA and save the plot
 chimp_dna['class'].value_counts().sort_index().plot.bar(color='blue')
 plt.title("Class distribution of Chimpanzee DNA")
 plt.savefig("plots/Class_distribution_of_Chimpanzee_DNA.png")
-#plt.show()
+plt.show()
 
 # Plot the class distribution of dog DNA and save the plot
 dog_dna['class'].value_counts().sort_index().plot.bar(color='green')
 plt.title("Class distribution of Dog DNA")
 plt.savefig("plots/Class_distribution_of_Dog_DNA.png")
-#plt.show()
+plt.show()
 
 # Create a figure with 3 subplots
 if not os.path.exists("plots"):
