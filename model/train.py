@@ -8,6 +8,7 @@ import numpy as np #linear algebra
 import pandas as pd #data processing, CSV I/O
 import os
 import matplotlib.pyplot as plt
+import logging
 
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.model_selection import train_test_split
@@ -22,6 +23,12 @@ X_train, X_test, y_train, y_test = train_test_split(X,y_human,test_size = 0.20,r
 
 classifier = MultinomialNB(alpha=0.1)
 classifier.fit(X_train, y_train)
+
+logging.basicConfig(level=logging.INFO)
+
+for i in range(10):
+    classifier.partial_fit(X_train, y_train, classes=np.unique(y_train))
+    logging.info("Iteration: %d,  Accuracy: %.2f" % (i+1, classifier.score(X_test, y_test)))
 
 y_pred = classifier.predict(X_test)
 

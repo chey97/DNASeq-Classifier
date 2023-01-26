@@ -133,9 +133,9 @@ X_dog = cv.transform(dog_texts)
 
 #print(cv.get_feature_names_out())
 
-print(X.shape)
-print(X_chimp.shape)
-print(X_dog.shape)
+print("Number of human genes converted into uniform length feauture vectors of k-mer counts  :",X.shape)
+print("Number of chimpanzee genes converted into uniform length feauture vectors of k-mer counts  :",X_chimp.shape)
+print("Number of dog genes converted into uniform length feauture vectors of k-mer counts  :",X_dog.shape)
     
 
 '''
