@@ -1,3 +1,7 @@
+'''
+- This program was build for academic purpose - DNASeq - DNA Sequence Classifier Copyright (C) 2023  Chethiya Galkaduwa
+'''
+
 # In this approach, we need to encode each nitrogen bases as an ordinal value. 
 # For example “ATGC” becomes [0.25, 0.5, 0.75, 1.0]. 
 # Any other base such as “N” can be a 0.

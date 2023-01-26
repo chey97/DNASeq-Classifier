@@ -1,3 +1,7 @@
+'''
+- This program was build for academic purpose - DNASeq - DNA Sequence Classifier Copyright (C) 2023  Chethiya Galkaduwa
+'''
+
 # Another approach is to use one-hot encoding to represent the DNA sequence. 
 # This is widely used in deep learning methods and lends itself well to algorithms like convolutional neural networks. 
 # This example, “ATGC” would become [0,0,0,1], [0,0,1,0], [0,1,0,0], [1,0,0,0]. And these one-hot encoded vectors can either be concatenated or turned into 2-dimensional arrays.
