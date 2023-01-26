@@ -1,3 +1,6 @@
+'''
+- This program was build for academic purpose - DNASeq - DNA Sequence Classifier Copyright (C) 2023  Chethiya Galkaduwa
+'''
 
 def Kmers_funct(seq, size):
     return [seq[x:x+size].lower() for x in range(len(seq) - size + 1)]
